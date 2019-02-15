@@ -38,7 +38,7 @@ class Person(models.Model):
     }
     # food
     FOOD={"ALL":0,"MUSLIM":1}
-
+    # 後でドキュメント化しやすいようにDBのデータを文字列で扱う
     # school
     school = models.CharField(max_length=128)
     # contesttype
@@ -50,7 +50,7 @@ class Person(models.Model):
     # phone
     phone = models.IntegerField()
     # email
-    email = models.CharField(max_length=128)
+    email = models.EmailField()
     # tshirts size
     size = models.CharField(max_length=128)
     # sex
@@ -61,5 +61,5 @@ class Person(models.Model):
     tlname = models.CharField(max_length=128)
     # teacher first name
     tfname = models.CharField(max_length=128)
-    # register time
+    # register time　TODO
     # register_at = models.DateTimeField()

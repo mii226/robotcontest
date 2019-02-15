@@ -41,16 +41,14 @@ class RobotInputView(TemplateView):
 class RobotConfirmView(TemplateView):
     template_name = "confirm.html"
 
-    # TODO ここのデータ類は辞書型にしたほうがよさそう
     SCHOOL = ('PHITSANULOK','CHIANGRAI','CHONBURI','TRANG','NAKORNSITHAMMARAT','LOPBURI','LOEI','MUKDHAHAN','PATHUMTHANI','SATUN','PHETCHABURI','BURIRAM')
     # gender
-    SEX=('MAN','WOMAN')
+    GENDER=('MAN','WOMAN')
 
     # size of shirts
     SIZE=('S','M','L','XL')
     
     # type of contest 
-    # TODO
     CONTEST=("WROLOW","WROHIGH","ROBOTLOW","ROBOTHIGH")
 
     # food
@@ -58,13 +56,11 @@ class RobotConfirmView(TemplateView):
 
     def post(self, request):
         post_data = request.POST
-        #TODO 画面に表示させるデータの扱い　クエリをDB登録に使用するため
-        #ここでvalidationする？
         context ={
             "fname":post_data.get("fname"),
             "lname":post_data.get("lname"),
             "school":self.SCHOOL[int(post_data.get("school"))],
-            "gender":self.SEX[int(post_data.get("gender"))],
+            "gender":self.GENDER[int(post_data.get("gender"))],
             "contesttype":self.CONTEST[int(post_data.get("contesttype"))],
             "phone":post_data.get("phone"),
             "email":post_data.get("email"),
@@ -75,20 +71,11 @@ class RobotConfirmView(TemplateView):
             }
         return render(self.request, self.template_name, context)
 
-# TODO 不正データ入力時の動作　画面クエリの変換をここでする？
 class RobotCompleteView(TemplateView):
     template_name = "complete.html"
 
     def post(self, request):
         person=Person()
-        # # 画面のデータをvalueの形式に変換しないとDB登録できないので変換する
-        # update_request=request.POST.copy().update({
-        #     "school":person.SCHOOL[request.POST["school"]],
-        #     "gender":person.GENDER[request.POST["gender"]],
-        #     "contesttype":person.CONTESTTYPE[request.POST["contesttype"]],
-        #     "size":person.SIZE[request.POST["size"]],
-        #     "food":person.FOOD[request.POST["food"]],
-        # })
         form=PersonModelForm(request.POST, instance=person)
         if form.is_valid():
             person=form.save(commit=False)

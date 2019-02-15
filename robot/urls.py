@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'^confirm', views.RobotConfirmView.as_view()),
     url(r'^complete', views.RobotCompleteView.as_view()),
     url(r'^', views.RobotTopView.as_view()),
+    # url(r'^error', views.RobotTopView.as_view()), TODO for error
 ]
