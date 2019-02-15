@@ -13,36 +13,35 @@ class RobotTopView(TemplateView):
     template_name = "top.html"
 
     def get(self, request, *args, **kwargs):
-        context = super(RobotTopView, self).get_context_data(**kwargs)
-        return render(self.request, self.template_name, context)
+        return render(self.request, self.template_name)
 
 
 class RobotInputView(TemplateView):
     template_name = "input.html"
 
-    # GETリクエスト
+    # GETリクエスト from toppage
     def get(self, request, *args, **kwargs):
-        # context = super(RobotInputView, self).get_context_data(**kwargs)
-        context = {'form': PersonForm()} 
+        context = {'form': PersonForm()} # for school
         return render(self.request, self.template_name, context)
-        
     
-    # POSTリクエスト
+    # POSTリクエスト from confirm
+    # TODO
     def post(self, request):
         person_form=PersonForm(request.POST)
         form_list = person_form.cleaned_data
         if person_form.is_valid() ==False: 
            # 指定されたフォームでフォームオブジェクトを作成 
             form_list = PersonForm() 
-            # 作成されたフォームオブジェクトをコンテキストへ格納             # 最初にブラウザから呼び出されたときに指定テンプレートとコンテキストで描画する 
+            # 作成されたフォームオブジェクトをコンテキストへ格納         
+            # 最初にブラウザから呼び出されたときに指定テンプレートとコンテキストで描画する 
 
         context = {'form': form_list} 
-        print(context)
         return render(self.request, self.template_name, context)
 
 class RobotConfirmView(TemplateView):
     template_name = "confirm.html"
 
+    # TODO ここのデータ類は辞書型にしたほうがよさそう
     SCHOOL = ('PHITSANULOK','CHIANGRAI','CHONBURI','TRANG','NAKORNSITHAMMARAT','LOPBURI','LOEI','MUKDHAHAN','PATHUMTHANI','SATUN','PHETCHABURI','BURIRAM')
     # gender
     SEX=('MAN','WOMAN')
@@ -50,7 +49,8 @@ class RobotConfirmView(TemplateView):
     # size of shirts
     SIZE=('S','M','L','XL')
     
-    # type of contest
+    # type of contest 
+    # TODO
     CONTEST=("","","","")
     WROLOW = 0
     WROHIGH = 1
@@ -59,16 +59,12 @@ class RobotConfirmView(TemplateView):
 
     # food
     FOOD=("ALL","MUSLIM")
-    def get(self, request, *args, **kwargs):
-        context = super(RobotConfirmView, self).get_context_data(**kwargs)
-
-        person = Person.objects.all()  # データベースからオブジェクトを取得して
-        context['person'] = person  # 入れ物に入れる
-        return render(self.request, self.template_name, context)
 
     def post(self, request):
         post_data = request.POST
         person_form=PersonForm()
+        #TODO 画面に表示させるデータの扱い　クエリをDB登録に使用するため
+        #ここでvalidationする？
         context ={
             "fname":post_data.get("fname"),
             "lname":post_data.get("lname"),
@@ -84,6 +80,7 @@ class RobotConfirmView(TemplateView):
             }
         return render(self.request, self.template_name, context)
 
+# TODO 不正データ入力時の動作　画面クエリの変換をここでする？
 class RobotCompleteView(TemplateView):
     template_name = "complete.html"
 
