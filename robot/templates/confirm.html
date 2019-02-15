@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Confirmation{% endblock %}
+{% block body %}
+<section class="menu cid-qTkzRZLJNu" once="menu" id="menu1-o">
+
+</section>
+
+<section class="mbr-section form1 cid-rhY3PSSkGr" id="form1-s">
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="title col-12 col-lg-8">
+                <h2 class="mbr-section-title align-center pb-3 mbr-fonts-style display-2">Confirm your Registration</h2>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <form class="mbr-form" action="complete" method="post" data-form-title="Mobirise Form"> {% csrf_token %}
+            <div class="row justify-content-center">
+                <div class="media-container-column col-lg-8" data-form-type="formoid">
+
+                    <input type="hidden" name="school" value="{{school}}">
+                    <input type="hidden" name="contesttype" value="{{contesttype}">
+                    <input type="hidden" name="lname" value="{{lname}}">
+                    <input type="hidden" name="fname" value="{{fname}}">
+                    <input type="hidden" name="gender" value="{{gender}}">
+                    <input type="hidden" name="phone" value="{{phone}}">
+                    <input type="hidden" name="email" value="{{email}}">
+                    <input type="hidden" name="size" value="{{size}}">
+                    <input type="hidden" name="food" value="{{food}}">
+                    <input type="hidden" name="tlname" value="{{tlname}}">
+                    <input type="hidden" name="tfname" value="{{tfname}}">
+
+                    <div class="row">
+                        <p class="control-label col-sm-3"><b>School</b></p>
+                        <div class="col-sm-9">{{school}}</div>
+                    </div>
+                    <div class="row">
+                        <p class="control-label col-sm-3"><b>ContestType</b></p>
+                        <div class="col-sm-9">{{contesttype}}</div>
+                    </div>
+                    <div class="row">
+                        <p class="control-label col-sm-3"><b>Name</b></p>
+                        <div class="col-sm-9">{{lname}} {{fname}}</div>
+                    </div>
+                    <div class="row">
+                        <p class="control-label col-sm-3"><b>Sex</b></p>
+                        <div class="col-sm-9">{{gender}}</div>
+                    </div>
+                    <div class="row">
+                        <p class="control-label col-sm-3"><b>Phone</b></p>
+                        <div class="col-sm-9">{{phone}}</div>
+                    </div>
+                    <div class="row">
+                        <p class="control-label col-sm-3"><b>E-mail</b></p>
+                        <div class="col-sm-9">{{email}}</div>
+                    </div>
+                    <div class="row">
+                        <p class="control-label col-sm-3"><b>Size of t-shirts</b></p>
+                        <div class="col-sm-9">{{size}}</div>
+                    </div>
+                    <div class="row">
+                        <p class="control-label col-sm-3"><b>Food</b></p>
+                        <div class="col-sm-9">{{food}}</div>
+                    </div>
+                    <div class="row">
+                        <p class="control-label col-sm-3"><b>TeacherName</b></p>
+                        <div class="col-sm-9">{{tlname}} {{tfname}}</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <span class="input-group-btn"><button href="" type="submit"
+                                    class="btn btn-form btn-success display-5">Registration</button></span>
+                        </div>
+        </form>
+    </div>
+    </div>
+    </div>
+</section>
+{% endblock %}
