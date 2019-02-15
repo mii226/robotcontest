@@ -23,4 +23,4 @@ class PersonForm(forms.Form):
 class PersonModelForm(forms.ModelForm):
     class Meta:
         model = Person
-        fields = ('school','contesttype','lname','fname','tel','email','size','gender','food','tlname','tfname')
+        fields = ('school','contesttype','lname','fname','phone','email','size','gender','food','tlname','tfname')

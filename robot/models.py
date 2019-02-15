@@ -4,57 +4,59 @@ from django.db import models
 
 class Person(models.Model):
     # gender
-    MAN = 0
-    WOMAN = 1
+    GENDER = {"MAN":0,"WOMAN":1}
 
     # size of shirts
-    SIZES = 0
-    SIZEM = 1
-    SIZEL = 2
-    SIZEXL = 3
-
+    SIZE = {
+        "S":0,
+        "M":1,
+        "L":2,
+        "XL":3
+        }
     # school 
-    PHITSANULOK = 0
-    CHIANGRAI = 1
-    CHONBURI = 2
-    TRANG = 3
-    NAKORNSITHAMMARAT = 4
-    LOPBURI = 5
-    LOEI = 6
-    MUKDHAHAN = 7
-    PATHUMTHANI = 8
-    SATUN = 9
-    PHETCHABURI = 10
-    BURIRAM = 11
+    SCHOOL = {
+        "PHITSANULOK":0,
+        "CHIANGRAI":1,
+        "CHONBURI":2,
+        "TRANG":3,
+        "NAKORNSITHAMMARAT":4,
+        "LOPBURI":5,
+        "LOEI":6,
+        "MUKDHAHAN":7,
+        "PATHUMTHANI":8,
+        "SATUN":9,
+        "PHETCHABURI":10,
+        "BURIRAM":11
+        }
 
     # type of contest
-    WROLOW = 0
-    WROHIGH = 1
-    ROBOTLOW = 2
-    ROBOTHIGH = 3
-
+    CONTESTTYPE={
+    "WROLOW":0,
+    "WROHIGH":1,
+    "ROBOTLOW":2,
+    "ROBOTHIGH":3
+    }
     # food
-    ALL = 0
-    MUSLIM = 1
+    FOOD={"ALL":0,"MUSLIM":1}
 
     # school
-    school = models.IntegerField()
+    school = models.CharField(max_length=128)
     # contesttype
-    contesttype = models.IntegerField()
+    contesttype = models.CharField(max_length=128)
     # last name
     lname = models.CharField(max_length=128)
     # first name
     fname = models.CharField(max_length=128)
-    # tel
-    tel = models.IntegerField()
+    # phone
+    phone = models.IntegerField()
     # email
-    email = models.EmailField()
+    email = models.CharField(max_length=128)
     # tshirts size
-    size = models.IntegerField()
+    size = models.CharField(max_length=128)
     # sex
-    gender = models.IntegerField()
+    gender = models.CharField(max_length=128)
     # food
-    food = models.IntegerField()
+    food = models.CharField(max_length=128)
     # teacher last name
     tlname = models.CharField(max_length=128)
     # teacher first name

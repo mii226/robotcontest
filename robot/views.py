@@ -51,18 +51,13 @@ class RobotConfirmView(TemplateView):
     
     # type of contest 
     # TODO
-    CONTEST=("","","","")
-    WROLOW = 0
-    WROHIGH = 1
-    ROBOTLOW = 2
-    ROBOTHIGH = 3
+    CONTEST=("WROLOW","WROHIGH","ROBOTLOW","ROBOTHIGH")
 
     # food
     FOOD=("ALL","MUSLIM")
 
     def post(self, request):
         post_data = request.POST
-        person_form=PersonForm()
         #TODO 画面に表示させるデータの扱い　クエリをDB登録に使用するため
         #ここでvalidationする？
         context ={
@@ -86,10 +81,19 @@ class RobotCompleteView(TemplateView):
 
     def post(self, request):
         person=Person()
+        # # 画面のデータをvalueの形式に変換しないとDB登録できないので変換する
+        # update_request=request.POST.copy().update({
+        #     "school":person.SCHOOL[request.POST["school"]],
+        #     "gender":person.GENDER[request.POST["gender"]],
+        #     "contesttype":person.CONTESTTYPE[request.POST["contesttype"]],
+        #     "size":person.SIZE[request.POST["size"]],
+        #     "food":person.FOOD[request.POST["food"]],
+        # })
         form=PersonModelForm(request.POST, instance=person)
         if form.is_valid():
             person=form.save(commit=False)
             person.save()
         else:
-            print("Regist Error invalid data.")
+            # TODO LOGGER
+            print("Regist Error invalid data.",form.errors)
         return render(self.request, self.template_name)
