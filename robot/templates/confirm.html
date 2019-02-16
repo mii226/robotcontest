@@ -2,21 +2,21 @@
 {% load staticfiles %}
 {% block title %}Confirmation{% endblock %}
 {% block body %}
-<section class="menu cid-qTkzRZLJNu" once="menu" id="menu1-o">
-
-</section>
-
-<section class="mbr-section form1 cid-rhY3PSSkGr" id="form1-s">
+<section class="mbr-section form1 cid-rhY3PSSkGr">
 
     <div class="container">
         <div class="row justify-content-center">
             <div class="title col-12 col-lg-8">
-                <h2 class="mbr-section-title align-center pb-3 mbr-fonts-style display-2">Confirm your Registration</h2>
+                <h2 class="mbr-section-title align-center pb-3 mbr-fonts-style display-2">Please confirm your
+                    Registration</h2>
+                <h3 class="mbr-section-title align-center pb-3 mbr-fonts-style">After check your Registration <b>push
+                        Registration Button!!</b></h2>
             </div>
         </div>
     </div>
     <div class="container">
-        <form class="mbr-form" action="complete" method="post" data-form-title="Mobirise Form"> {% csrf_token %}
+        <form class="form" action="complete" method="post">
+            {% csrf_token %}
             <div class="row justify-content-center">
                 <div class="media-container-column col-lg-8" data-form-type="formoid">
 
@@ -68,15 +68,23 @@
                         <p class="control-label col-sm-3"><b>TeacherName</b></p>
                         <div class="col-sm-9">{{tlname}} {{tfname}}</div>
                     </div>
-
-                    <div class="row">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <span class="input-group-btn"><button href="" type="submit"
-                                    class="btn btn-form btn-success display-5">Registration</button></span>
+                    <div class="row row-sm-offset">
+                        <div class="col-xs-6 multi-horizontal">
+                            <span class="input-group-btn">
+                                <a href="input" type="submit" class="btn btn-form btn-danger display-4">Back to
+                                    Inputform</a>
+                            </span>
                         </div>
+                        <div class="col-xs-6 multi-horizontal">
+                            <span class="input-group-btn">
+                                <button href="" type="submit"
+                                    class="btn btn-form btn-success display-4">Registration</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </form>
-    </div>
-    </div>
     </div>
 </section>
 {% endblock %}

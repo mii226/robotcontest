@@ -40,110 +40,90 @@
                 {{form.school}}
                 <div class="form-group">
                     <p class="control-label"><b>ContestType</b></p>
+                    {% for radio in form.contesttype %}
                     <div class="radio">
-                        <input type="radio" value="0" name="contesttype" id="Type1" required>
-                        <label for="Type1">Type1</label>
+                        {{radio.tag}}
+                        <label>{{radio.choice_label}}</label>
                     </div>
-                    <div class="radio">
-                        <input type="radio" value="1" name="contesttype" id="Type2" required>
-                        <label for="Type2">Type2</label>
-                    </div>
-                    <div class="radio">
-                        <input type="radio" value="2" name="contesttype" id="Type3" required>
-                        <label for="Type3">Type3</label>
-                    </div>
-                    <div class="radio">
-                        <input type="radio" value="3" name="contesttype" id="Type4" required>
-                        <label for="Type4">Type4</label>
-                    </div>
+                    {%endfor%}
                 </div>
                 <p class="control-label"><b>Name</b></p>
                 <div class="row row-sm-offset">
                     <div class="col-md-6 multi-horizontal" data-for="lastname">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="lname" data-form-field="lname" required
-                                placeholder="Please write your lastname " id="name-form1-s">
+                            <input type="text" class="form-control" name="lname" value="{{lname}}"
+                                data-form-field="lname" required placeholder="Please write your lastname "
+                                id="name-form1-s">
                         </div>
                     </div>
                     <div class="col-md-6 multi-horizontal" data-for="firstname">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="fname" data-form-field="Email" required
-                                placeholder="Please write your familyname " id="email-form1-s">
+                            <input type="text" class="form-control" name="fname" value="{{fname}}"
+                                data-form-field="Email" required placeholder="Please write your familyname "
+                                id="email-form1-s">
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <p class="control-label"><b>Sex</b></p>
+                    {% for radio in form.gender %}
                     <div class="radio">
-                        <input type="radio" value="0" name="gender" id="man" required>
-                        <label for="man">Man</label>
+                        {{radio.tag}}
+                        <label>{{radio.choice_label}}</label>
                     </div>
-                    <div class="radio">
-                        <input type="radio" value="1" name="gender" id="woman" required>
-                        <label for="woman">Woman</label>
-                    </div>
+                    {%endfor%}
                 </div>
 
                 <div class="multi-horizontal" data-for="phone">
                     <div class="form-group">
                         <p class="control-label"><b>Phone</b></p>
-                        <input type="tel" value="" class="form-control" name="phone" data-form-field="Phone"
+                        <input type="tel" class="form-control" value="{{phone}}" name="phone" data-form-field="Phone"
                             placeholder="Please write your Phone number" id="phone-form1-s" required>
 
                     </div>
                 </div>
 
-                <div class="multi-horizontal" data-for="phone">
+                <div class="multi-horizontal" data-for="email">
                     <div class="form-group">
                         <p class="control-label"><b>E-mail</b></p>
-                        <input type="tel" class="form-control" name="email" data-form-field="email"
-                            placeholder="Please write your E-mail Address" id="phone-form1-s" required>
+                        <input type="tel" class="form-control" value="{{email}}" name="email" data-form-field="email"
+                            placeholder="Please write your E-mail Address" required>
                     </div>
                 </div>
                 <div class="row row-sm-offset">
                     <span class="col-md-6 form-group">
                         <p class="control-label"><b>Size of t-shirts</b></p>
+                        {% for radio in form.size %}
                         <div class="radio">
-                            <input type="radio" value="0" name="size" id="man" required>
-                            <label for="sizes">S</label>
+                            {{radio.tag}}
+                            <label>{{radio.choice_label}}</label>
                         </div>
-                        <div class="radio">
-                            <input type="radio" value="1" name="size" id="sizem" required>
-                            <label for="sizem">M</label>
-                        </div>
-                        <div class="radio">
-                            <input type="radio" value="2" name="size" id="sizel" required>
-                            <label for="sizel">L</label>
-                        </div>
-                        <div class="radio">
-                            <input type="radio" value="3" name="size" id="sizexl" required>
-                            <label for="sizexl">XL</label>
-                        </div>
+                        {%endfor%}
                     </span>
                     <span class="col-md-6 form-group">
                         <p class="control-label"><b>Food</b></p>
+                        {% for radio in form.food %}
                         <div class="radio">
-                            <input type="radio" value="0" name="food" id="man" required>
-                            <label for="sizes">All</label>
+                            {{radio.tag}}
+                            <label>{{radio.choice_label}}</label>
                         </div>
-                        <div class="radio">
-                            <input type="radio" value="1" name="food" id="sizem" required>
-                            <label for="sizem">Muslim</label>
-                        </div>
+                        {%endfor%}
                     </span>
                 </div>
                 <p class="control-label"><b>TeacherName</b></p>
                 <div class="row row-sm-offset">
                     <div class="col-md-6 multi-horizontal" data-for="lastname">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="tlname" data-form-field="Name" required
-                                placeholder="Please write your Teacher LastName " id="name-form1-s">
+                            <input type="text" class="form-control" name="tlname" value="{{tlname}}"
+                                data-form-field="Name" required placeholder="Please write your Teacher LastName "
+                                id="name-form1-s">
                         </div>
                     </div>
                     <div class="col-md-6 multi-horizontal" data-for="tfname">
                         <div class="form-group">
-                            <input type="text" class="form-control" name="tfname" data-form-field="tfname" required
-                                placeholder="Please write your Teacher FamilyName " id="name-form1-s">
+                            <input type="text" class="form-control" name="tfname" value="{{tfname}}"
+                                data-form-field="tfname" required placeholder="Please write your Teacher FamilyName "
+                                id="name-form1-s">
                         </div>
                     </div>
                 </div>

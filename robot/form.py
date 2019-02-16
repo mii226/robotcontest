@@ -2,7 +2,6 @@ from django import forms
 from robot.models import Person
 
 class PersonForm(forms.Form):
-
     # school 
     SCHOOL=((0,'PHITSANULOK'),
         (1,'CHIANGRAI'),
@@ -15,10 +14,28 @@ class PersonForm(forms.Form):
         (8,'PATHUMTHANI'),
         (9,'SATUN'),
         (10,'PHETCHABURI'),
-        (11,'BURIRAM'))
+        (11,'BURIRAM'),)
+    # contesttype
+    CONTESTTYPE = ((0,"TYPE1"),(1,"TYPE2"),(2,"TYPE3"),(3,"TYPE4"),)
+    # gender
+    GENDER =((0,"MAN"),(1,"WOMAN"),)
+    # size
+    SIZE = ((0,"S"),(1,"M"),(2,"L"),(3,"XL"),)
+    # food
+    FOOD = ((0,"ALL"),(1,"MUSLIM"),)
 
+    # make form
     # school
-    school = forms.ChoiceField(required=True,choices=SCHOOL)
+    school = forms.ChoiceField(widget=forms.Select, required=True,choices=SCHOOL)
+    # contesttype
+    contesttype = forms.ChoiceField(widget=forms.RadioSelect,choices=CONTESTTYPE,required=True)
+    # gender
+    gender = forms.ChoiceField(widget=forms.RadioSelect,choices=GENDER,required=True)
+    # size
+    size = forms.ChoiceField(widget=forms.RadioSelect,choices=GENDER,required=True)
+    # food
+    food = forms.ChoiceField(widget=forms.RadioSelect, required=True,choices=FOOD)
+
 
 class PersonModelForm(forms.ModelForm):
     class Meta:

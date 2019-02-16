@@ -13,6 +13,7 @@ class RobotTopView(TemplateView):
     template_name = "top.html"
 
     def get(self, request, *args, **kwargs):
+        request.session.delete()
         return render(self.request, self.template_name)
 
 
@@ -21,21 +22,25 @@ class RobotInputView(TemplateView):
 
     # GETリクエスト from toppage
     def get(self, request, *args, **kwargs):
-        context = {'form': PersonForm()} # for school
-        return render(self.request, self.template_name, context)
-    
-    # POSTリクエスト from confirm
-    # TODO
-    def post(self, request):
-        person_form=PersonForm(request.POST)
-        form_list = person_form.cleaned_data
-        if person_form.is_valid() ==False: 
-           # 指定されたフォームでフォームオブジェクトを作成 
-            form_list = PersonForm() 
-            # 作成されたフォームオブジェクトをコンテキストへ格納         
-            # 最初にブラウザから呼び出されたときに指定テンプレートとコンテキストで描画する 
+        school_form = PersonForm()
+        # school_form.school
+        context={'form':school_form}     
+        # from confirm page
+        if request.session.get("fname") is not None:
+            context.update({
+                    "fname":request.session.get("fname"),
+                    "lname":request.session.get("lname"),
+                    "school":request.session.get("school"),
+                    "gender":request.session.get("gender"),
+                    "contesttype":request.session.get("contesttype"),
+                    "phone":request.session.get("phone"),
+                    "email":request.session.get("email"),
+                    "size":request.session.get("size"),
+                    "food":request.session.get("food"),
+                    "tfname":request.session.get("tfname"),
+                    "tlname":request.session.get("tlname"),
+                    })
 
-        context = {'form': form_list} 
         return render(self.request, self.template_name, context)
 
 class RobotConfirmView(TemplateView):
@@ -54,21 +59,34 @@ class RobotConfirmView(TemplateView):
     # food
     FOOD=("ALL","MUSLIM")
 
+    # TODO def get ()
+
     def post(self, request):
         post_data = request.POST
-        context ={
+        form_data = {
             "fname":post_data.get("fname"),
             "lname":post_data.get("lname"),
+            "school":post_data.get("school"),
+            "gender":post_data.get("gender"),
+            "contesttype":post_data.get("contesttype"),
+            "phone":post_data.get("phone"),
+            "email":post_data.get("email"),
+            "size":post_data.get("size"),
+            "food":post_data.get("food"),
+            "tfname":post_data.get("tfname"),
+            "tlname":post_data.get("tlname"),}
+        # save input data to session
+        request.session.update(form_data)
+        # make data for screen
+        form_data.update({
             "school":self.SCHOOL[int(post_data.get("school"))],
             "gender":self.GENDER[int(post_data.get("gender"))],
             "contesttype":self.CONTEST[int(post_data.get("contesttype"))],
-            "phone":post_data.get("phone"),
-            "email":post_data.get("email"),
             "size":self.SIZE[int(post_data.get("size"))],
             "food":self.FOOD[int(post_data.get("food"))],
-            "tfname":post_data.get("tfname"),
-            "tlname":post_data.get("tlname"),
-            }
+            })
+        context = form_data
+        # make screen
         return render(self.request, self.template_name, context)
 
 class RobotCompleteView(TemplateView):
@@ -80,6 +98,8 @@ class RobotCompleteView(TemplateView):
         if form.is_valid():
             person=form.save(commit=False)
             person.save()
+            # delete session because complete register
+            request.session.delete()
         else:
             # TODO LOGGER
             print("Regist Error invalid data.",form.errors)
