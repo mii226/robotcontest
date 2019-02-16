@@ -22,21 +22,16 @@ class RobotInputView(TemplateView):
 
     # GETリクエスト from toppage
     def get(self, request, *args, **kwargs):
-        school_form = PersonForm()
         # school_form.school
-        context={'form':school_form}     
+        context={"form":PersonForm()}     
         # from confirm page
         if request.session.get("fname") is not None:
             context.update({
+                    "form":PersonForm(initial=request.session),
                     "fname":request.session.get("fname"),
                     "lname":request.session.get("lname"),
-                    "school":request.session.get("school"),
-                    "gender":request.session.get("gender"),
-                    "contesttype":request.session.get("contesttype"),
                     "phone":request.session.get("phone"),
                     "email":request.session.get("email"),
-                    "size":request.session.get("size"),
-                    "food":request.session.get("food"),
                     "tfname":request.session.get("tfname"),
                     "tlname":request.session.get("tlname"),
                     })

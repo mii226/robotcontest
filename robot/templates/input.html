@@ -38,60 +38,50 @@
             <div class="media-container-column col-lg-8" data-form-type="formoid">
                 <p class="control-label"><b>School</b></p>
                 {{form.school}}
-                <div class="form-group">
-                    <p class="control-label"><b>ContestType</b></p>
-                    {% for radio in form.contesttype %}
-                    <div class="radio">
-                        {{radio.tag}}
-                        <label>{{radio.choice_label}}</label>
-                    </div>
-                    {%endfor%}
+                <p class="control-label"><b>ContestType</b></p>
+                {% for radio in form.contesttype %}
+                <div class="radio">
+                    {{radio.tag}}
+                    <label>{{radio.choice_label}}</label>
                 </div>
+                {%endfor%}
                 <p class="control-label"><b>Name</b></p>
                 <div class="row row-sm-offset">
+                    <p class="control-label col-md-6 multi-horizontal">LastName</p>
+                    <p class="control-label col-md-6 multi-horizontal">FamilyName</p>
+                </div>
+                <div class="row row-sm-offset">
                     <div class="col-md-6 multi-horizontal" data-for="lastname">
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="lname" value="{{lname}}"
-                                data-form-field="lname" required placeholder="Please write your lastname "
-                                id="name-form1-s">
-                        </div>
+                        <input type="text" class="form-control" name="lname" value="{{lname}}" data-form-field="lname"
+                            required placeholder="Please write your lastname " id="name-form1-s">
                     </div>
                     <div class="col-md-6 multi-horizontal" data-for="firstname">
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="fname" value="{{fname}}"
-                                data-form-field="Email" required placeholder="Please write your familyname "
-                                id="email-form1-s">
-                        </div>
+                        <input type="text" class="form-control" name="fname" value="{{fname}}" data-form-field="Email"
+                            required placeholder="Please write your familyname " id="email-form1-s">
                     </div>
                 </div>
-                <div class="form-group">
-                    <p class="control-label"><b>Sex</b></p>
-                    {% for radio in form.gender %}
-                    <div class="radio">
-                        {{radio.tag}}
-                        <label>{{radio.choice_label}}</label>
-                    </div>
-                    {%endfor%}
+                <p class="control-label"><b>Sex</b></p>
+                {% for radio in form.gender %}
+                <div class="radio">
+                    {{radio.tag}}
+                    <label>{{radio.choice_label}}</label>
                 </div>
+                {%endfor%}
 
                 <div class="multi-horizontal" data-for="phone">
-                    <div class="form-group">
-                        <p class="control-label"><b>Phone</b></p>
-                        <input type="tel" class="form-control" value="{{phone}}" name="phone" data-form-field="Phone"
-                            placeholder="Please write your Phone number" id="phone-form1-s" required>
+                    <p class="control-label"><b>Phone</b></p>
+                    <input type="tel" class="form-control" value="{{phone}}" name="phone" data-form-field="Phone"
+                        placeholder="Please write your Phone number" id="phone-form1-s" required>
 
-                    </div>
                 </div>
 
                 <div class="multi-horizontal" data-for="email">
-                    <div class="form-group">
-                        <p class="control-label"><b>E-mail</b></p>
-                        <input type="tel" class="form-control" value="{{email}}" name="email" data-form-field="email"
-                            placeholder="Please write your E-mail Address" required>
-                    </div>
+                    <p class="control-label"><b>E-mail</b></p>
+                    <input type="tel" class="form-control" value="{{email}}" name="email" data-form-field="email"
+                        placeholder="Please write your E-mail Address" required>
                 </div>
                 <div class="row row-sm-offset">
-                    <span class="col-md-6 form-group">
+                    <span class="col-md-6">
                         <p class="control-label"><b>Size of t-shirts</b></p>
                         {% for radio in form.size %}
                         <div class="radio">
@@ -100,7 +90,7 @@
                         </div>
                         {%endfor%}
                     </span>
-                    <span class="col-md-6 form-group">
+                    <span class="col-md-6">
                         <p class="control-label"><b>Food</b></p>
                         {% for radio in form.food %}
                         <div class="radio">
@@ -112,19 +102,18 @@
                 </div>
                 <p class="control-label"><b>TeacherName</b></p>
                 <div class="row row-sm-offset">
+                    <p class="control-label col-md-6 multi-horizontal">Your teacher's LastName</p>
+                    <p class="control-label col-md-6 multi-horizontal">Yout Teacher's FamilyName</p>
+                </div>
+                <div class="row row-sm-offset">
                     <div class="col-md-6 multi-horizontal" data-for="lastname">
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="tlname" value="{{tlname}}"
-                                data-form-field="Name" required placeholder="Please write your Teacher LastName "
-                                id="name-form1-s">
-                        </div>
+                        <input type="text" class="form-control" name="tlname" value="{{tlname}}" data-form-field="Name"
+                            required placeholder="Please write your Teacher LastName " id="name-form1-s">
                     </div>
                     <div class="col-md-6 multi-horizontal" data-for="tfname">
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="tfname" value="{{tfname}}"
-                                data-form-field="tfname" required placeholder="Please write your Teacher FamilyName "
-                                id="name-form1-s">
-                        </div>
+                        <input type="text" class="form-control" name="tfname" value="{{tfname}}"
+                            data-form-field="tfname" required placeholder="Please write your Teacher FamilyName "
+                            id="name-form1-s">
                     </div>
                 </div>
 
