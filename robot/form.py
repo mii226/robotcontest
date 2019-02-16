@@ -25,6 +25,25 @@ class PersonForm(forms.Form):
     FOOD = ((0,"ALL"),(1,"MUSLIM"),)
 
     # make form
+    lname = forms.CharField(required=True, widget=forms.TextInput(attrs={
+        "class": "form-control",
+        "placeholder":"Please write your Lastname "}))
+    fname = forms.CharField(required=True, widget=forms.TextInput(attrs={
+        "class": "form-control",
+        "placeholder":"Please write your FamilyName "}))
+    phone = forms.IntegerField(required=True, widget=forms.NumberInput(attrs={
+        "class": "form-control",
+        "placeholder":"Please write your Phone number"}))
+    email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={
+        "class": "form-control",
+        "placeholder":"Please write your E-mail Address"}))
+    tlname = forms.CharField(required=True, widget=forms.TextInput(attrs={
+        "class": "form-control",
+        "placeholder":"Please write your teacher's Lastname "}))
+    tfname = forms.CharField(required=True, widget=forms.TextInput(attrs={
+        "class": "form-control",
+        "placeholder":"Please write your teacher's FamilyName "}))
+    
     # school
     school = forms.ChoiceField(widget=forms.Select, required=True,choices=SCHOOL)
     # contesttype
@@ -32,7 +51,7 @@ class PersonForm(forms.Form):
     # gender
     gender = forms.ChoiceField(widget=forms.RadioSelect,choices=GENDER,required=True)
     # size
-    size = forms.ChoiceField(widget=forms.RadioSelect,choices=GENDER,required=True)
+    size = forms.ChoiceField(widget=forms.RadioSelect,choices=SIZE,required=True)
     # food
     food = forms.ChoiceField(widget=forms.RadioSelect, required=True,choices=FOOD)
 

@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import TemplateView,FormView
 
+from django.http import HttpResponseServerError
 from django.template.context_processors import csrf
 from robot.form import PersonForm,PersonModelForm
 from robot.models import *
@@ -26,15 +27,7 @@ class RobotInputView(TemplateView):
         context={"form":PersonForm()}     
         # from confirm page
         if request.session.get("fname") is not None:
-            context.update({
-                    "form":PersonForm(initial=request.session),
-                    "fname":request.session.get("fname"),
-                    "lname":request.session.get("lname"),
-                    "phone":request.session.get("phone"),
-                    "email":request.session.get("email"),
-                    "tfname":request.session.get("tfname"),
-                    "tlname":request.session.get("tlname"),
-                    })
+            context.update({"form":PersonForm(initial=request.session)})
 
         return render(self.request, self.template_name, context)
 
@@ -98,4 +91,6 @@ class RobotCompleteView(TemplateView):
         else:
             # TODO LOGGER
             print("Regist Error invalid data.",form.errors)
+            raise HttpResponseServerError({"error": errors})
+        
         return render(self.request, self.template_name)

@@ -52,12 +52,10 @@
                 </div>
                 <div class="row row-sm-offset">
                     <div class="col-md-6 multi-horizontal" data-for="lastname">
-                        <input type="text" class="form-control" name="lname" value="{{lname}}" data-form-field="lname"
-                            required placeholder="Please write your lastname " id="name-form1-s">
+                        {{form.lname}}
                     </div>
                     <div class="col-md-6 multi-horizontal" data-for="firstname">
-                        <input type="text" class="form-control" name="fname" value="{{fname}}" data-form-field="Email"
-                            required placeholder="Please write your familyname " id="email-form1-s">
+                        {{form.fname}}
                     </div>
                 </div>
                 <p class="control-label"><b>Sex</b></p>
@@ -70,15 +68,12 @@
 
                 <div class="multi-horizontal" data-for="phone">
                     <p class="control-label"><b>Phone</b></p>
-                    <input type="tel" class="form-control" value="{{phone}}" name="phone" data-form-field="Phone"
-                        placeholder="Please write your Phone number" id="phone-form1-s" required>
-
+                    {{form.phone}}
                 </div>
 
                 <div class="multi-horizontal" data-for="email">
                     <p class="control-label"><b>E-mail</b></p>
-                    <input type="tel" class="form-control" value="{{email}}" name="email" data-form-field="email"
-                        placeholder="Please write your E-mail Address" required>
+                    {{form.email}}
                 </div>
                 <div class="row row-sm-offset">
                     <span class="col-md-6">
@@ -103,17 +98,14 @@
                 <p class="control-label"><b>TeacherName</b></p>
                 <div class="row row-sm-offset">
                     <p class="control-label col-md-6 multi-horizontal">Your teacher's LastName</p>
-                    <p class="control-label col-md-6 multi-horizontal">Yout Teacher's FamilyName</p>
+                    <p class="control-label col-md-6 multi-horizontal">Yout teacher's FamilyName</p>
                 </div>
                 <div class="row row-sm-offset">
                     <div class="col-md-6 multi-horizontal" data-for="lastname">
-                        <input type="text" class="form-control" name="tlname" value="{{tlname}}" data-form-field="Name"
-                            required placeholder="Please write your Teacher LastName " id="name-form1-s">
+                        {{form.tlname}}
                     </div>
                     <div class="col-md-6 multi-horizontal" data-for="tfname">
-                        <input type="text" class="form-control" name="tfname" value="{{tfname}}"
-                            data-form-field="tfname" required placeholder="Please write your Teacher FamilyName "
-                            id="name-form1-s">
+                        {{form.tfname}}
                     </div>
                 </div>
 
