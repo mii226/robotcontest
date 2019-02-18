@@ -2,25 +2,6 @@
 {% load staticfiles %}
 {% block title %}Input{% endblock %}
 {% block body %}
-<nav
-    class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm bg-color transparent">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </button>
-    <div class="menu-logo">
-        <div class="navbar-brand">
-            <span class="navbar-caption-wrap"><a class="navbar-caption text-primary display-5" href="">Robot
-                    Contest</a></span>
-        </div>
-    </div>
-</nav>
 
 <div class="container">
     <div class="row justify-content-center">
@@ -47,14 +28,12 @@
                 {%endfor%}
                 <p class="control-label"><b>Name</b></p>
                 <div class="row row-sm-offset">
-                    <p class="control-label col-md-6 multi-horizontal">LastName</p>
-                    <p class="control-label col-md-6 multi-horizontal">FamilyName</p>
-                </div>
-                <div class="row row-sm-offset">
                     <div class="col-md-6 multi-horizontal" data-for="lastname">
+                        <p class="control-label">LastName</p>
                         {{form.lname}}
                     </div>
                     <div class="col-md-6 multi-horizontal" data-for="firstname">
+                        <p class="control-label">FamilyName</p>
                         {{form.fname}}
                     </div>
                 </div>
@@ -97,14 +76,12 @@
                 </div>
                 <p class="control-label"><b>TeacherName</b></p>
                 <div class="row row-sm-offset">
-                    <p class="control-label col-md-6 multi-horizontal">Your teacher's LastName</p>
-                    <p class="control-label col-md-6 multi-horizontal">Yout teacher's FamilyName</p>
-                </div>
-                <div class="row row-sm-offset">
                     <div class="col-md-6 multi-horizontal" data-for="lastname">
+                        <p class="control-label">Your teacher's LastName</p>
                         {{form.tlname}}
                     </div>
                     <div class="col-md-6 multi-horizontal" data-for="tfname">
+                        <p class="control-label">Yout teacher's FamilyName</p>
                         {{form.tfname}}
                     </div>
                 </div>
