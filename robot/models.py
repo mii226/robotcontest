@@ -44,9 +44,7 @@ class Person(models.Model):
     # contesttype
     contesttype = models.CharField(max_length=128)
     # last name
-    lname = models.CharField(max_length=128)
-    # first name
-    fname = models.CharField(max_length=128)
+    name = models.CharField(max_length=128)
     # phone
     phone = models.IntegerField()
     # email
@@ -57,9 +55,5 @@ class Person(models.Model):
     gender = models.CharField(max_length=128)
     # food
     food = models.CharField(max_length=128)
-    # teacher last name
-    tlname = models.CharField(max_length=128)
-    # teacher first name
-    tfname = models.CharField(max_length=128)
-    # register time　TODO
-    # register_at = models.DateTimeField()
+    # allergy
+    allergy = models.CharField(max_length=128, null=True, blank=True)

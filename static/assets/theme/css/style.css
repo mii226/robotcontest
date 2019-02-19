@@ -9,7 +9,21 @@ section,
 .container,
 .container-fluid {
   position: relative;
-  word-wrap: break-word; }
+  word-wrap: break-word;
+ }
+section,
+.custom{
+  background-color: white;
+  margin-bottom: 40px;
+  }
+.custom-st{
+  background-color:lightcyan;
+  margin-bottom: 40px;
+  }
+.custom-tc{
+  background-color: lightgoldenrodyellow;
+  margin-bottom: 40px;
+  }
 
 a.mbr-iconfont:hover {
   text-decoration: none; }
@@ -445,6 +459,9 @@ nav .mbr-section-btn {
 .row {
   display: -webkit-flex;
   -webkit-flex-wrap: wrap; }
+.row-costom{
+
+}
 
 .justify-content-center {
   -webkit-justify-content: center; }

@@ -1,0 +1,35 @@
+<section class="custom-st">
+    <div class="row row-sm-offset">
+        <div class="col-md-6 multi-horizontal" data-for="lastname">
+            <p class="control-label"><b>ชื่อและนามสกุล / name and surname</b></p>
+            {{form.lname}}
+        </div>
+        <div class="col-md-6 multi-horizontal">
+            <p class="control-label"><b>เพศ / Sex</b></p>
+            {{form.gender }}
+        </div>
+    </div>
+    <div class="row row-sm-offset">
+        <div class="col-md-6 multi-horizontal" data-for="phone">
+            <p class="control-label"><b>โทรศัพท์ / Tel</b></p>
+            {{form.phone}}
+        </div>
+
+        <div class="col-md-6 multi-horizontal" data-for="email">
+            <p class="control-label"><b>อีเมล / Email</b></p>
+            {{form.email}}
+        </div>
+    </div>
+    <div class="row row-sm-offset">
+        <span class="col-md-6">
+            <p class="control-label"><b>ขนาดของเสื้อ / T-Shirt Size</b></p>
+            {{form.size}}
+        </span>
+        <span class="col-md-6">
+            <p class="control-label"><b>Food</b></p>
+            {{form.food }}
+        </span>
+    </div>
+    <p class="control-label"><b>อแพ้อาหาร / Food Allergy</b></p>
+    {{form.allergy}}
+</section>

@@ -17,57 +17,142 @@
     <div class="container">
         <form class="form" action="complete" method="post">
             {% csrf_token %}
+            {% for field in form %}
+            {{field.as_hidden}}
+            {% endfor %}
             <div class="row justify-content-center">
                 <div class="media-container-column col-lg-8" data-form-type="formoid">
+                    <section class="custom">
+                        <div class="row">
+                            <p class="control-label col-sm-3"><b>School</b></p>
+                            <div class="col-sm-9">{{form.school.value}}</div>
 
-                    <input type="hidden" name="school" value="{{school}}">
-                    <input type="hidden" name="contesttype" value="{{contesttype}}">
-                    <input type="hidden" name="lname" value="{{lname}}">
-                    <input type="hidden" name="fname" value="{{fname}}">
-                    <input type="hidden" name="gender" value="{{gender}}">
-                    <input type="hidden" name="phone" value="{{phone}}">
-                    <input type="hidden" name="email" value="{{email}}">
-                    <input type="hidden" name="size" value="{{size}}">
-                    <input type="hidden" name="food" value="{{food}}">
-                    <input type="hidden" name="tlname" value="{{tlname}}">
-                    <input type="hidden" name="tfname" value="{{tfname}}">
-
-                    <div class="row">
-                        <p class="control-label col-sm-3"><b>School</b></p>
-                        <div class="col-sm-9">{{school}}</div>
-                    </div>
-                    <div class="row">
-                        <p class="control-label col-sm-3"><b>ContestType</b></p>
-                        <div class="col-sm-9">{{contesttype}}</div>
-                    </div>
-                    <div class="row">
-                        <p class="control-label col-sm-3"><b>Name</b></p>
-                        <div class="col-sm-9">{{lname}} {{fname}}</div>
-                    </div>
-                    <div class="row">
-                        <p class="control-label col-sm-3"><b>Sex</b></p>
-                        <div class="col-sm-9">{{gender}}</div>
-                    </div>
-                    <div class="row">
-                        <p class="control-label col-sm-3"><b>Phone</b></p>
-                        <div class="col-sm-9">{{phone}}</div>
-                    </div>
-                    <div class="row">
-                        <p class="control-label col-sm-3"><b>E-mail</b></p>
-                        <div class="col-sm-9">{{email}}</div>
-                    </div>
-                    <div class="row">
-                        <p class="control-label col-sm-3"><b>Size of t-shirts</b></p>
-                        <div class="col-sm-9">{{size}}</div>
-                    </div>
-                    <div class="row">
-                        <p class="control-label col-sm-3"><b>Food</b></p>
-                        <div class="col-sm-9">{{food}}</div>
-                    </div>
-                    <div class="row">
-                        <p class="control-label col-sm-3"><b>TeacherName</b></p>
-                        <div class="col-sm-9">{{tlname}} {{tfname}}</div>
-                    </div>
+                        </div>
+                        <div class="row">
+                            <p class="control-label col-sm-3"><b>ContestType</b></p>
+                            <div class="col-sm-9">{{form.contesttype.value}}</div>
+                        </div>
+                    </section>
+                    <section class="custom-st" id="st-1">
+                        <div class="row">
+                            <p class="control-label col-sm-3"><b>Name</b></p>
+                            <div class="col-sm-9">{{form.name1.value}}</div>
+                        </div>
+                        <div class="row">
+                            <p class="control-label col-sm-3"><b>Sex</b></p>
+                            <div class="col-sm-9">{{form.gender1.value}}</div>
+                        </div>
+                        <div class="row">
+                            <p class="control-label col-sm-3"><b>Phone</b></p>
+                            <div class="col-sm-9">{{form.phone1.value}}</div>
+                        </div>
+                        <div class="row">
+                            <p class="control-label col-sm-3"><b>E-mail</b></p>
+                            <div class="col-sm-9">{{form.email1.value}}</div>
+                        </div>
+                        <div class="row">
+                            <p class="control-label col-sm-3"><b>Size of t-shirts</b></p>
+                            <div class="col-sm-9">{{form.size1.value}}</div>
+                        </div>
+                        <div class="row">
+                            <p class="control-label col-sm-3"><b>Food</b></p>
+                            <div class="col-sm-9">{{form.food1.value}}</div>
+                        </div>
+                        <div class="row">
+                            <p class="control-label col-sm-3"><b>Foodallergy</b></p>
+                            <div class="col-sm-9">{{form.allergy1.value}}</div>
+                        </div>
+                    </section>
+                    <section class="custom-st" id="st-2">
+                        <div class="row">
+                            <p class="control-label col-sm-3"><b>Name</b></p>
+                            <div class="col-sm-9">{{form.name2.value}}</div>
+                        </div>
+                        <div class="row">
+                            <p class="control-label col-sm-3"><b>Sex</b></p>
+                            <div class="col-sm-9">{{form.gender2.value}}</div>
+                        </div>
+                        <div class="row">
+                            <p class="control-label col-sm-3"><b>Phone</b></p>
+                            <div class="col-sm-9">{{form.phone2.value}}</div>
+                        </div>
+                        <div class="row">
+                            <p class="control-label col-sm-3"><b>E-mail</b></p>
+                            <div class="col-sm-9">{{form.email2.value}}</div>
+                        </div>
+                        <div class="row">
+                            <p class="control-label col-sm-3"><b>Size of t-shirts</b></p>
+                            <div class="col-sm-9">{{form.size2.value}}</div>
+                        </div>
+                        <div class="row">
+                            <p class="control-label col-sm-3"><b>Food</b></p>
+                            <div class="col-sm-9">{{form.food2.value}}</div>
+                        </div>
+                        <div class="row">
+                            <p class="control-label col-sm-3"><b>Foodallergy</b></p>
+                            <div class="col-sm-9">{{form.allergy2.value}}</div>
+                        </div>
+                    </section>
+                    <section class="custom-st" id="st-3">
+                        <div class="row">
+                            <p class="control-label col-sm-3"><b>Name</b></p>
+                            <div class="col-sm-9">{{form.name3.value}}</div>
+                        </div>
+                        <div class="row">
+                            <p class="control-label col-sm-3"><b>Sex</b></p>
+                            <div class="col-sm-9">{{form.gender3.value}}</div>
+                        </div>
+                        <div class="row">
+                            <p class="control-label col-sm-3"><b>Phone</b></p>
+                            <div class="col-sm-9">{{form.phone3.value}}</div>
+                        </div>
+                        <div class="row">
+                            <p class="control-label col-sm-3"><b>E-mail</b></p>
+                            <div class="col-sm-9">{{form.email3.value}}</div>
+                        </div>
+                        <div class="row">
+                            <p class="control-label col-sm-3"><b>Size of t-shirts</b></p>
+                            <div class="col-sm-9">{{form.size3.value}}</div>
+                        </div>
+                        <div class="row">
+                            <p class="control-label col-sm-3"><b>Food</b></p>
+                            <div class="col-sm-9">{{form.food3.value}}</div>
+                        </div>
+                        <div class="row">
+                            <p class="control-label col-sm-3"><b>Foodallergy</b></p>
+                            <div class="col-sm-9">{{form.allergy3.value}}</div>
+                        </div>
+                    </section>
+                    <section class="custom-tc" id="tc">
+                        <div class="row">
+                            <p class="control-label col-sm-3"><b>Name</b></p>
+                            <div class="col-sm-9">{{form.tname.value}}</div>
+                        </div>
+                        <div class="row">
+                            <p class="control-label col-sm-3"><b>Sex</b></p>
+                            <div class="col-sm-9">{{form.tgender.value}}</div>
+                        </div>
+                        <div class="row">
+                            <p class="control-label col-sm-3"><b>Phone</b></p>
+                            <div class="col-sm-9">{{form.tphone.value}}</div>
+                        </div>
+                        <div class="row">
+                            <p class="control-label col-sm-3"><b>E-mail</b></p>
+                            <div class="col-sm-9">{{form.temail.value}}</div>
+                        </div>
+                        <div class="row">
+                            <p class="control-label col-sm-3"><b>Size of t-shirts</b></p>
+                            <div class="col-sm-9">{{form.tsize.value}}</div>
+                        </div>
+                        <div class="row">
+                            <p class="control-label col-sm-3"><b>Food</b></p>
+                            <div class="col-sm-9">{{form.tfood.value}}</div>
+                        </div>
+                        <div class="row">
+                            <p class="control-label col-sm-3"><b>Foodallergy</b></p>
+                            <div class="col-sm-9">{{form.tallergy.value}}</div>
+                        </div>
+                    </section>
                     <div class="row row-sm-offset">
                         <div class="col-xs-6 multi-horizontal">
                             <span class="input-group-btn">

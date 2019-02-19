@@ -3,60 +3,113 @@ from robot.models import Person
 
 class PersonForm(forms.Form):
     # school 
-    SCHOOL=((0,'PHITSANULOK'),
-        (1,'CHIANGRAI'),
-        (2,'CHONBURI'),
-        (3,'TRANG'),
-        (4,'NAKORNSITHAMMARAT'),
-        (5,'LOPBURI'),
-        (6,'LOEI'),
-        (7,'MUKDHAHAN'),
-        (8,'PATHUMTHANI'),
-        (9,'SATUN'),
-        (10,'PHETCHABURI'),
-        (11,'BURIRAM'),)
+    SCHOOL=((0,'เชียงราย'),
+        (1,'พิษณุโลก'),
+        (2,'ลพบุรี'),
+        (3,'เลย'),
+        (4,'มุกดาหาร'),
+        (5,'บุรีรัมย์'),
+        (6,'ปทุมธานี '),
+        (7,'ชลบุรี'),
+        (8,'เพรชบุรี'),
+        (9,'นครศรีธรรมราช'),
+        (10,'ตรัง'),
+        (11,'สตูล'),)
     # contesttype
-    CONTESTTYPE = ((0,"TYPE1"),(1,"TYPE2"),(2,"TYPE3"),(3,"TYPE4"),)
+    CONTESTTYPE = ((0,"WRO2019 ระดับมัธยมศึกษาตอนต้น"),
+                    (1,"WRO2019 ระดับมัธยมศึกษาตอนปลาย"),
+                    (2,"หุ่นยนต์ระดับกลาง ระดับมัธยมศึกษาตอนต้น"),(3,"หุ่นยนต์ระดับกลาง ระดับมัธยมศึกษาตอนปลาย"),)
     # gender
-    GENDER =((0,"MAN"),(1,"WOMAN"),)
+    GENDER =((0,"ชาย"),(1,"หญิง"),(2,"อื่น ๆ"))
     # size
     SIZE = ((0,"S"),(1,"M"),(2,"L"),(3,"XL"),)
     # food
-    FOOD = ((0,"ALL"),(1,"MUSLIM"),)
+    FOOD = ((0,"อาหารทั่วไป / Normal Food"),(1,"อาหารฮาลาล / HALAL Food"),)
 
     # make form
-    lname = forms.CharField(required=True, widget=forms.TextInput(attrs={
+    name1 = forms.CharField(required=True, widget=forms.TextInput(attrs={
         "class": "form-control",
-        "placeholder":"Please write your Lastname "}))
-    fname = forms.CharField(required=True, widget=forms.TextInput(attrs={
+        "placeholder":"Please write your name "}))
+    name2 = forms.CharField(required=True, widget=forms.TextInput(attrs={
         "class": "form-control",
-        "placeholder":"Please write your FamilyName "}))
-    phone = forms.IntegerField(required=True, widget=forms.NumberInput(attrs={
+        "placeholder":"Please write your name "}))
+    name3 = forms.CharField(required=True, widget=forms.TextInput(attrs={
+        "class": "form-control",
+        "placeholder":"Please write your name "}))
+    tname = forms.CharField(required=True, widget=forms.TextInput(attrs={
+        "class": "form-control",
+        "placeholder":"Please write your name "}))
+
+    phone1 = forms.IntegerField(required=True, widget=forms.NumberInput(attrs={
         "class": "form-control",
         "placeholder":"Please write your Phone number"}))
-    email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={
+    phone2 = forms.IntegerField(required=True, widget=forms.NumberInput(attrs={
+        "class": "form-control",
+        "placeholder":"Please write your Phone number"}))
+    phone3 = forms.IntegerField(required=True, widget=forms.NumberInput(attrs={
+        "class": "form-control",
+        "placeholder":"Please write your Phone number"}))
+    tphone = forms.IntegerField(required=True, widget=forms.NumberInput(attrs={
+        "class": "form-control",
+        "placeholder":"Please write your Phone number"}))
+    email1 = forms.EmailField(required=True, widget=forms.EmailInput(attrs={
         "class": "form-control",
         "placeholder":"Please write your E-mail Address"}))
-    tlname = forms.CharField(required=True, widget=forms.TextInput(attrs={
+    email2 = forms.EmailField(required=True, widget=forms.EmailInput(attrs={
         "class": "form-control",
-        "placeholder":"Please write your teacher's Lastname "}))
-    tfname = forms.CharField(required=True, widget=forms.TextInput(attrs={
+        "placeholder":"Please write your E-mail Address"}))
+    email3 = forms.EmailField(required=True, widget=forms.EmailInput(attrs={
         "class": "form-control",
-        "placeholder":"Please write your teacher's FamilyName "}))
+        "placeholder":"Please write your E-mail Address"}))
+    temail = forms.EmailField(required=True, widget=forms.EmailInput(attrs={
+        "class": "form-control",
+        "placeholder":"Please write your E-mail Address"}))
+
+
     
     # school
     school = forms.ChoiceField(widget=forms.Select, required=True,choices=SCHOOL)
     # contesttype
-    contesttype = forms.ChoiceField(widget=forms.RadioSelect,choices=CONTESTTYPE,required=True)
+    contesttype = forms.ChoiceField(widget=forms.Select,choices=CONTESTTYPE,required=True)
+
     # gender
-    gender = forms.ChoiceField(widget=forms.RadioSelect,choices=GENDER,required=True)
+    gender1 = forms.ChoiceField(widget=forms.Select,choices=GENDER,required=True)
+    gender2 = forms.ChoiceField(widget=forms.Select,choices=GENDER,required=True)
+    gender3 = forms.ChoiceField(widget=forms.Select,choices=GENDER,required=True)
+    tgender = forms.ChoiceField(widget=forms.Select,choices=GENDER,required=True)
+
     # size
-    size = forms.ChoiceField(widget=forms.RadioSelect,choices=SIZE,required=True)
+    size1 = forms.ChoiceField(widget=forms.Select,choices=SIZE,required=True)
+    size2 = forms.ChoiceField(widget=forms.Select,choices=SIZE,required=True)
+    size3 = forms.ChoiceField(widget=forms.Select,choices=SIZE,required=True)
+    tsize = forms.ChoiceField(widget=forms.Select,choices=SIZE,required=True)
+
     # food
-    food = forms.ChoiceField(widget=forms.RadioSelect, required=True,choices=FOOD)
+    food1 = forms.ChoiceField(widget=forms.Select, required=True,choices=FOOD)
+    food2 = forms.ChoiceField(widget=forms.Select, required=True,choices=FOOD)
+    food3 = forms.ChoiceField(widget=forms.Select, required=True,choices=FOOD)
+    tfood = forms.ChoiceField(widget=forms.Select, required=True,choices=FOOD)
+
+    # allergy
+    allergy1 = forms.CharField(required=False, widget=forms.TextInput(attrs={
+        "class": "form-control",
+        "placeholder":"If you have food allergy, write your food allergy."}))
+    allergy2 = forms.CharField(required=False, widget=forms.TextInput(attrs={
+        "class": "form-control",
+        "placeholder":"If you have food allergy, write your food allergy."}))
+    allergy3 = forms.CharField(required=False, widget=forms.TextInput(attrs={
+        "class": "form-control",
+        "placeholder":"If you have food allergy, write your food allergy."}))
+    tallergy = forms.CharField(required=False, widget=forms.TextInput(attrs={
+        "class": "form-control",
+        "placeholder":"If you have food allergy, write your food allergy."}))
 
 
 class PersonModelForm(forms.ModelForm):
     class Meta:
         model = Person
-        fields = ('school','contesttype','lname','fname','phone','email','size','gender','food','tlname','tfname')
+        fields = ('school','contesttype','name','phone','email','size','gender','food','allergy')
+
+        def __init__(self, *args, **kwargs):
+            super(PersonModelForm, self).__init__(*args, **kwargs)
+            self.fields["allergy"].required = False

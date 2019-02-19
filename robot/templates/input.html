@@ -17,74 +17,162 @@
         {% csrf_token %}
         <div class="row justify-content-center">
             <div class="media-container-column col-lg-8" data-form-type="formoid">
-                <p class="control-label"><b>School</b></p>
-                {{form.school}}
-                <p class="control-label"><b>ContestType</b></p>
-                {% for radio in form.contesttype %}
-                <div class="radio">
-                    {{radio.tag}}
-                    <label>{{radio.choice_label}}</label>
-                </div>
-                {%endfor%}
-                <p class="control-label"><b>Name</b></p>
-                <div class="row row-sm-offset">
-                    <div class="col-md-6 multi-horizontal" data-for="lastname">
-                        <p class="control-label">LastName</p>
-                        {{form.lname}}
-                    </div>
-                    <div class="col-md-6 multi-horizontal" data-for="firstname">
-                        <p class="control-label">FamilyName</p>
-                        {{form.fname}}
-                    </div>
-                </div>
-                <p class="control-label"><b>Sex</b></p>
-                {% for radio in form.gender %}
-                <div class="radio">
-                    {{radio.tag}}
-                    <label>{{radio.choice_label}}</label>
-                </div>
-                {%endfor%}
-
-                <div class="multi-horizontal" data-for="phone">
-                    <p class="control-label"><b>Phone</b></p>
-                    {{form.phone}}
-                </div>
-
-                <div class="multi-horizontal" data-for="email">
-                    <p class="control-label"><b>E-mail</b></p>
-                    {{form.email}}
-                </div>
-                <div class="row row-sm-offset">
-                    <span class="col-md-6">
-                        <p class="control-label"><b>Size of t-shirts</b></p>
-                        {% for radio in form.size %}
-                        <div class="radio">
-                            {{radio.tag}}
-                            <label>{{radio.choice_label}}</label>
+                <section class="custom">
+                    <div class="row row-sm-offset">
+                        <div class="col-md-6 multi-horizontal">
+                            <p class="control-label"><b>โรงเรียน / School</b></p>
+                            {{form.school}}
                         </div>
-                        {%endfor%}
-                    </span>
-                    <span class="col-md-6">
-                        <p class="control-label"><b>Food</b></p>
-                        {% for radio in form.food %}
-                        <div class="radio">
-                            {{radio.tag}}
-                            <label>{{radio.choice_label}}</label>
+                        <div class="col-md-6 multi-horizontal">
+                            <p class="control-label"><b>ประเภทการแข่งขัน / Type of Competition</b></p>
+                            {{form.contesttype }}
                         </div>
-                        {%endfor%}
-                    </span>
-                </div>
-                <p class="control-label"><b>TeacherName</b></p>
-                <div class="row row-sm-offset">
-                    <div class="col-md-6 multi-horizontal" data-for="lastname">
-                        <p class="control-label">Your teacher's LastName</p>
-                        {{form.tlname}}
                     </div>
-                    <div class="col-md-6 multi-horizontal" data-for="tfname">
-                        <p class="control-label">Yout teacher's FamilyName</p>
-                        {{form.tfname}}
+                </section>
+                <section class="custom-st" id="st-1">
+                    <h3 class="mbr-section-subtitle align-left">ข้อมูลนักเรียนคนที่ 1</h3>
+                    <div class="row row-sm-offset">
+                        <div class="col-md-6 multi-horizontal" data-for="lastname">
+                            <p class="control-label"><b>ชื่อและนามสกุล / name and surname</b></p>
+                            {{form.name1}}
+                        </div>
+                        <div class="col-md-6 multi-horizontal">
+                            <p class="control-label"><b>เพศ / Sex</b></p>
+                            {{form.gender1 }}
+                        </div>
                     </div>
-                </div>
+                    <div class="row row-sm-offset">
+                        <div class="col-md-6 multi-horizontal" data-for="phone">
+                            <p class="control-label"><b>โทรศัพท์ / Tel</b></p>
+                            {{form.phone1}}
+                        </div>
+
+                        <div class="col-md-6 multi-horizontal" data-for="email">
+                            <p class="control-label"><b>อีเมล / Email</b></p>
+                            {{form.email1}}
+                        </div>
+                    </div>
+                    <div class="row row-sm-offset">
+                        <span class="col-md-6">
+                            <p class="control-label"><b>ขนาดของเสื้อ / T-Shirt Size</b></p>
+                            {{form.size1}}
+                        </span>
+                        <span class="col-md-6">
+                            <p class="control-label"><b>อาหาร / Food</b></p>
+                            {{form.food1}}
+                        </span>
+                    </div>
+                    <p class="control-label"><b>อแพ้อาหาร / Food Allergy</b></p>
+                    {{form.allergy1}}
+                </section>
+                <section class="custom-st" id="st-2">
+                    <h3 class="mbr-section-subtitle align-left">ข้อมูลนักเรียนคนที่ 2</h3>
+                    <div class="row row-sm-offset">
+                        <div class="col-md-6 multi-horizontal" data-for="lastname">
+                            <p class="control-label"><b>ชื่อและนามสกุล / name and surname</b></p>
+                            {{form.name2}}
+                        </div>
+                        <div class="col-md-6 multi-horizontal">
+                            <p class="control-label"><b>เพศ / Sex</b></p>
+                            {{form.gender2 }}
+                        </div>
+                    </div>
+                    <div class="row row-sm-offset">
+                        <div class="col-md-6 multi-horizontal" data-for="phone">
+                            <p class="control-label"><b>โทรศัพท์ / Tel</b></p>
+                            {{form.phone2}}
+                        </div>
+
+                        <div class="col-md-6 multi-horizontal" data-for="email">
+                            <p class="control-label"><b>อีเมล / Email</b></p>
+                            {{form.email2}}
+                        </div>
+                    </div>
+                    <div class="row row-sm-offset">
+                        <span class="col-md-6">
+                            <p class="control-label"><b>ขนาดของเสื้อ / T-Shirt Size</b></p>
+                            {{form.size2}}
+                        </span>
+                        <span class="col-md-6">
+                            <p class="control-label"><b>อาหาร / Food</b></p>
+                            {{form.food2}}
+                        </span>
+                    </div>
+                    <p class="control-label"><b>อแพ้อาหาร / Food Allergy</b></p>
+                    {{form.allergy2}}
+                </section>
+                <section class="custom-st" id="st-3">
+                    <h3 class="mbr-section-subtitle align-left">ข้อมูลนักเรียนคนที่ 3</h3>
+                    <div class="row row-sm-offset">
+                        <div class="col-md-6 multi-horizontal" data-for="lastname">
+                            <p class="control-label"><b>ชื่อและนามสกุล / name and surname</b></p>
+                            {{form.name3}}
+                        </div>
+                        <div class="col-md-6 multi-horizontal">
+                            <p class="control-label"><b>เพศ / Sex</b></p>
+                            {{form.gender3 }}
+                        </div>
+                    </div>
+                    <div class="row row-sm-offset">
+                        <div class="col-md-6 multi-horizontal" data-for="phone">
+                            <p class="control-label"><b>โทรศัพท์ / Tel</b></p>
+                            {{form.phone3}}
+                        </div>
+
+                        <div class="col-md-6 multi-horizontal" data-for="email">
+                            <p class="control-label"><b>อีเมล / Email</b></p>
+                            {{form.email3}}
+                        </div>
+                    </div>
+                    <div class="row row-sm-offset">
+                        <span class="col-md-6">
+                            <p class="control-label"><b>ขนาดของเสื้อ / T-Shirt Size</b></p>
+                            {{form.size3}}
+                        </span>
+                        <span class="col-md-6">
+                            <p class="control-label"><b>อาหาร / Food</b></p>
+                            {{form.food3}}
+                        </span>
+                    </div>
+                    <p class="control-label"><b>อแพ้อาหาร / Food Allergy</b></p>
+                    {{form.allergy3}}
+                </section>
+                <section class="custom-tc" id="tc">
+                    <h3 class="mbr-section-subtitle align-left">อาจารย์ที่ปรึกษา</h3>
+                    <div class="row row-sm-offset">
+                        <div class="col-md-6 multi-horizontal" data-for="lastname">
+                            <p class="control-label"><b>ชื่อและนามสกุล / name and surname</b></p>
+                            {{form.tname}}
+                        </div>
+                        <div class="col-md-6 multi-horizontal">
+                            <p class="control-label"><b>เพศ / Sex</b></p>
+                            {{form.tgender }}
+                        </div>
+                    </div>
+                    <div class="row row-sm-offset">
+                        <div class="col-md-6 multi-horizontal" data-for="phone">
+                            <p class="control-label"><b>โทรศัพท์ / Tel</b></p>
+                            {{form.tphone}}
+                        </div>
+
+                        <div class="col-md-6 multi-horizontal" data-for="email">
+                            <p class="control-label"><b>อีเมล / Email</b></p>
+                            {{form.temail}}
+                        </div>
+                    </div>
+                    <div class="row row-sm-offset">
+                        <span class="col-md-6">
+                            <p class="control-label"><b>ขนาดของเสื้อ / T-Shirt Size</b></p>
+                            {{form.tsize}}
+                        </span>
+                        <span class="col-md-6">
+                            <p class="control-label"><b>อาหาร / Food</b></p>
+                            {{form.tfood }}
+                        </span>
+                    </div>
+                    <p class="control-label"><b>อแพ้อาหาร / Food Allergy</b></p>
+                    {{form.tallergy}}
+                </section>
 
                 <div class="row justify-content-center">
                     <span class="input-group-btn">
