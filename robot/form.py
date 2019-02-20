@@ -24,46 +24,46 @@ class PersonForm(forms.Form):
     # size
     SIZE = ((0,"S"),(1,"M"),(2,"L"),(3,"XL"),)
     # food
-    FOOD = ((0,"อาหารทั่วไป / Normal Food"),(1,"อาหารฮาลาล / HALAL Food"),)
+    FOOD = ((0,"อาหารทั่วไป"),(1,"อาหารฮาลาล"),)
 
     # make form
     name1 = forms.CharField(required=True, widget=forms.TextInput(attrs={
         "class": "form-control",
-        "placeholder":"Please write your name "}))
+        "placeholder":"Taro Yamada"}))
     name2 = forms.CharField(required=True, widget=forms.TextInput(attrs={
         "class": "form-control",
-        "placeholder":"Please write your name "}))
+        "placeholder":"Taro Yamada"}))
     name3 = forms.CharField(required=True, widget=forms.TextInput(attrs={
         "class": "form-control",
-        "placeholder":"Please write your name "}))
+        "placeholder":"Taro Yamada"}))
     tname = forms.CharField(required=True, widget=forms.TextInput(attrs={
         "class": "form-control",
-        "placeholder":"Please write your name "}))
+        "placeholder":"Taro Yamada"}))
 
     phone1 = forms.IntegerField(required=True, widget=forms.NumberInput(attrs={
         "class": "form-control",
-        "placeholder":"Please write your Phone number"}))
+        "placeholder":"09012345678"}))
     phone2 = forms.IntegerField(required=True, widget=forms.NumberInput(attrs={
         "class": "form-control",
-        "placeholder":"Please write your Phone number"}))
+        "placeholder":"09012345678"}))
     phone3 = forms.IntegerField(required=True, widget=forms.NumberInput(attrs={
         "class": "form-control",
-        "placeholder":"Please write your Phone number"}))
+        "placeholder":"09012345678"}))
     tphone = forms.IntegerField(required=True, widget=forms.NumberInput(attrs={
         "class": "form-control",
-        "placeholder":"Please write your Phone number"}))
+        "placeholder":"09012345678"}))
     email1 = forms.EmailField(required=True, widget=forms.EmailInput(attrs={
         "class": "form-control",
-        "placeholder":"Please write your E-mail Address"}))
+        "placeholder":"yamada.taro@gmail.com"}))
     email2 = forms.EmailField(required=True, widget=forms.EmailInput(attrs={
         "class": "form-control",
-        "placeholder":"Please write your E-mail Address"}))
+        "placeholder":"yamada.taro@gmail.com"}))
     email3 = forms.EmailField(required=True, widget=forms.EmailInput(attrs={
         "class": "form-control",
-        "placeholder":"Please write your E-mail Address"}))
+        "placeholder":"yamada.taro@gmail.com"}))
     temail = forms.EmailField(required=True, widget=forms.EmailInput(attrs={
         "class": "form-control",
-        "placeholder":"Please write your E-mail Address"}))
+        "placeholder":"yamada.taro@gmail.com"}))
 
 
     
